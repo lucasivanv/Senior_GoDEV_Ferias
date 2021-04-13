@@ -90,8 +90,7 @@ public class Main {
 	/**
 	 * Registro da data início das férias
 	 * 
-	 * A SER IMPLMENTADO Realiza o registro da data de início das férias solicitada pelo colaborador. 
-	 * Este registro só é realizado após a veficação das datas solicitadas.
+	 * A SER IMPLEMENTADO
 	 * 
 	 * @param dataInicioFerias LocalDateTime - data de início de férias solicitada pelo colaborador
 	 * @return
@@ -104,13 +103,13 @@ public class Main {
 	/**
 	 * Registro da data fim das férias
 	 * 
-	 * Realiza o registro da data fim das férias solicitada pelo colaborador. 
-	 * Este registro só é realizado após a veficação das datas solicitadas. 
+	 * A SER IMPLEMENTADO
 	 * 
 	 * @param dataFimFerias LocalDateTime - data do fim das férias solicitada pelo colaborador
 	 * @return
 	 */
 	static LocalDateTime registraDataFimFerias(LocalDateTime dataFimFerias) {
+		// TODO implementação
 		return dataFimFerias;
 	}
 

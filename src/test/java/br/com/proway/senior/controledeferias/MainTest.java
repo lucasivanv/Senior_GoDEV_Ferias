@@ -3,6 +3,7 @@ package br.com.proway.senior.controledeferias;
 import static org.junit.Assert.*;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 import org.junit.Test;
 
@@ -32,4 +33,11 @@ public class MainTest {
 		assertFalse(intervaloEntreSolicitacaoEInicio);
 	}
 	
+	@Test
+	public void verificaSeIntervaloEntreDataInicioEDataFimParaFeriasTotaisEhIgualA30Dias() {
+		LocalDateTime dataInicioFeriasTotais = LocalDateTime.of(2021, 3, 29, 0, 0);
+		LocalDateTime dataFimFeriasTotais = Main.calculaDataFimFeriasTotais(dataInicioFeriasTotais);
+		boolean intervaloEntreDataInicioEFim = dataInicioFeriasTotais.until(dataFimFeriasTotais, ChronoUnit.DAYS) == 30? true : false;
+		assertTrue(intervaloEntreDataInicioEFim);
+	}
 }
