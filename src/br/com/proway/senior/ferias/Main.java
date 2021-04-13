@@ -34,13 +34,13 @@ public class Main {
 	}
 	
 	static LocalDateTime getDataInicioFerias() {
-		LocalDateTime respostaDataInicioFerias = LocalDateTime.of(2021, 3, 23, 0, 0);
-		return respostaDataInicioFerias;
+		LocalDateTime dataInicioFerias = LocalDateTime.of(2021, 3, 23, 0, 0);
+		return dataInicioFerias;
 	}
 
 	static LocalDateTime getDataFimFerias() {
-		LocalDateTime respostaDataFimFerias = LocalDateTime.of(2021, 4, 1, 0, 0);
-		return respostaDataFimFerias;
+		LocalDateTime dataFimFerias = LocalDateTime.of(2021, 4, 1, 0, 0);
+		return dataFimFerias;
 	}
 
 	public static LocalDateTime getDataDeChamado() {
@@ -48,13 +48,13 @@ public class Main {
 		return dataChamado;			
 	}
 
-	static void registraDataInicioFerias(LocalDateTime respostaDataInicioFerias) {
-		LocalDateTime dataInicio = respostaDataInicioFerias;
+	static void registraDataInicioFerias(LocalDateTime dataInicioFerias) {
+		LocalDateTime dataInicio = dataInicioFerias;
 		System.out.println(dataInicio);
 	}
 
-	static void registraDataFimFerias(LocalDateTime respostaDataFimFerias) {
-		LocalDateTime dataFim = respostaDataFimFerias;
+	static void registraDataFimFerias(LocalDateTime dataFimFerias) {
+		LocalDateTime dataFim = dataFimFerias;
 		System.out.println(dataFim);
 	}
 
@@ -73,8 +73,8 @@ public class Main {
 	}	
 	
 	public static void main(String[] args) {
-		String respostaTipoFerias = "parcial";
-		registraDatasFerias(respostaTipoFerias);		
+		String tipoFerias = "parcial";
+		registraDatasFerias(tipoFerias);		
 	}
 }
 
