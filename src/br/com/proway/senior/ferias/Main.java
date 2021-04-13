@@ -4,10 +4,15 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Main {
+	
+	public static void main(String[] args) {
+		String tipoFerias = "parcial";
+		registraDatasFerias(tipoFerias);		
+	}
 
 	static void registraDatasFerias(String respostaTipoFerias){
 
-		if (verificarDataDeChamado()) {			
+		if (verificarDataChamado()) {			
 			if (respostaTipoFerias == "total") {			
 
 				LocalDateTime dataInicioFerias = getDataInicioFerias();
@@ -43,7 +48,7 @@ public class Main {
 		return dataFimFerias;
 	}
 
-	public static LocalDateTime getDataDeChamado() {
+	public static LocalDateTime getDataChamado() {
 		LocalDateTime dataChamado = LocalDateTime.of(2021, 3, 12, 0, 0);
 		return dataChamado;			
 	}
@@ -58,8 +63,8 @@ public class Main {
 		System.out.println(dataFim);
 	}
 
-	public static boolean verificarDataDeChamado() {
-		LocalDateTime dataChamado = getDataDeChamado();
+	public static boolean verificarDataChamado() {
+		LocalDateTime dataChamado = getDataChamado();
 		LocalDateTime dataInicio = getDataInicioFerias();
 		boolean intervaloSuperior10dias = dataChamado.until(dataInicio, ChronoUnit.DAYS) > 10? true : false;
 		return intervaloSuperior10dias;
@@ -70,11 +75,6 @@ public class Main {
 		LocalDateTime dataInicio = getDataInicioFerias();
 		boolean intervaloInferior20dias = dataInicio.until(dataFim, ChronoUnit.DAYS) < 20? true : false;
 		return intervaloInferior20dias;
-	}	
-	
-	public static void main(String[] args) {
-		String tipoFerias = "parcial";
-		registraDatasFerias(tipoFerias);		
-	}
+	}		
 }
 
