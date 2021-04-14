@@ -1,10 +1,12 @@
 package br.com.proway.senior.controledeferias;
 
+import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Main {
 
+	
 	/**
 	 * Verifica intervalo entre data da solicitação e data de inicio das férias
 	 * 
@@ -341,5 +343,67 @@ public class Main {
 	
 	////Janaina <<<<<<<<<< end
 	
+	// BRUNO START
+	
+	//Varaveis com dados que deveriam vir do banco de dados
+	static int[] listaDeColaboradores = { 0, 1, 4 };// lista com id de colaboradores
+	static int[] saldoDeFerias = { 30, 25, 40, 10, 5 }; // substituir por valor recebido do Banco de dados
+	static int recebeColaboradores = 1; // recebe colaboradores do Banco de dados
+	
+	/**
+	 * Consulta saldo de férias Recebe um id de colaborador e utiliza ele como
+	 * parametro para encontrar o saldo de férias que está em no vetor saldoDeFerias
+	 *
+	 * @author Bruno Marques
+	 * @param id int Recebe um valor para selecionar intem do vetor
+	 * @return saldo de férias
+	 */
+	public static int consultarSaldo(int id) {
+		int saldo = saldoDeFerias[id];
+		System.out.println("Você possui " + saldo + " dias de férias");
+		return saldo;
+
+	}
+
+	/**
+	 * Verifica se possúi colaboradores na equipe 
+	 * Verifica se o usúario possúi colaboradores em sua equipe atravé de valor recebido
+	 * 
+	 * @author Bruno Marques
+	 * @param id int Recebe um valor (quantidade de funcionarios) para fazer a validação
+	 * @return possuiColab true ou false
+	 */
+	public static boolean consultarColaboraoresDaEquipe(int id) {
+		boolean possuiColab = (id <= 0) ? false : true;
+		return possuiColab;
+	}
+/**
+ * Consulta férias de membros da equipe
+ * Após verificar se o usúario possúi colaboradores em sua equipe, 
+ * o sistema retorna quais colaboradores são da equipe e o saldo de férias de cada um
+ * 
+ * @author Bruno Marques
+ * @param listaDeColaboradores int[] recebe vetor com lista de colaboradores
+ * @param saldoDeFerias int[] recebe vetor com saldo de férias por colaborador
+ * @return uma lista com uma lista de colaoradres da equipe e outra lista de saldo de férias de cada um
+ */
+	public static ArrayList<Integer>  consultaSituacaoDeFeriasDaEquipe(int[] listaDeColaboradores,
+			int[] saldoDeFerias) {
+		ArrayList<Integer> lista = new ArrayList<Integer>();
+		if (consultarColaboraoresDaEquipe(recebeColaboradores)) {
+			System.out.println("Você possui " + listaDeColaboradores.length + " colaboradores em sua equipe.");
+			for (int c = 0; c < listaDeColaboradores.length; c++) {
+				int colab = listaDeColaboradores[c];
+				lista.add(saldoDeFerias[colab]);
+				System.out.println("O colaborador de id " + listaDeColaboradores[c] + " possui " +
+				saldoDeFerias[c] + " dias de férias." );
+			}
+		} else {
+			System.out.println("O usuário não possui colaboradores em sua equipe");
+		}
+		return lista;
+	}
+	
+	//BRUNO END
 
 }
