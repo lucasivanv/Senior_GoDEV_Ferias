@@ -156,4 +156,49 @@ public class MainTest {
 	}
 	
 	//Janaina <<<<<<<<<<<<< end
+	
+	//Bruno START
+	static int[] listaDeColaboradores = { 0, 1, 4 };// lista com id de colaboradores
+	static int[] saldoDeFerias = { 30, 25, 40, 10, 5 }; // substituir por valor recebido do Banco de dados
+	static int recebeColaboradores = 1; // recebe colaboradores do Banco de dados
+	boolean possuiColab = ColaboradorLider.consultarColaboraoresDaEquipe(recebeColaboradores);
+
+
+		
+	@Test
+	public void testeConsultaDeSaloDeFerias1() {
+		int saldo = ColaboradorLider.consultarSaldo(2);
+		assertEquals(saldo,40);
+	}
+
+	@Test
+	public void testeConsultaDeSaloDeFerias2() {
+		int saldo = ColaboradorLider.consultarSaldo(2);
+		assertNotEquals(saldo,42);
+	}
+	
+	@Test
+	public void testeConsultarSePossuiColaboradoresNaEquipe1() {
+		boolean possuiColab = ColaboradorLider.consultarColaboraoresDaEquipe(0);
+			assertEquals(possuiColab, false);
+		}
+	@Test
+	public void testeConsultarSePossuiColaboradoresNaEquipe2() {
+		boolean possuiColab = ColaboradorLider.consultarColaboraoresDaEquipe(0);
+			assertNotEquals(possuiColab, true);
+		}
+	
+	@Test
+	public void testeConsultaSituacaoDeFeriasDaEquipe() {
+		ColaboradorLider ColaboradorLider = new ColaboradorLider();
+		ArrayList<Integer> saldos = ColaboradorLider.consultaSituacaoDeFeriasDaEquipe(listaDeColaboradores, saldoDeFerias);
+		for(int i = 0; i < saldos.size(); i++) {
+			int saldoRecebido = saldos.get(i);
+			int j = listaDeColaboradores[i];
+			int saldoEsperado = saldoDeFerias[j];
+			assertEquals(saldoRecebido, saldoEsperado);	
+		}
+
+	}
+	// BRUNO END
 }
