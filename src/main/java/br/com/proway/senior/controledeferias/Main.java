@@ -6,25 +6,25 @@ import java.time.temporal.ChronoUnit;
 public class Main {
 
 	/**
-	 * Verifica intervalo entre data da solicitaÁ„o e data de inicio das fÈrias
+	 * Verifica intervalo entre data da solicita√ß√£o e data de inicio das f√©rias
 	 * 
-	 * Verifica se a data de inÌcio das fÈrias solicitada È 10 dias apÛs a data de solicitaÁ„o, retornando verdadeiro caso seja.
+	 * Verifica se a data de in√≠cio das f√©rias solicitada √© 10 dias ap√≥s a data de solicita√ß√£o, retornando verdadeiro caso seja.
 	 * 
-	 * @param dataInicioFerias LocalDateTime - data de Ìnicio de fÈrias solicitada
-	 * @return boolean, de acordo com a condiÁ„o (maior que 10 dias)
+	 * @param dataInicioFerias LocalDateTime - data de √≠nicio de f√©rias solicitada
+	 * @return boolean, de acordo com a condi√ß√£o (maior que 10 dias)
 	 */
 	public static boolean verificarDataSolicitacao(LocalDateTime dataInicioFerias) {
 		boolean intervaloSuperior10dias = LocalDateTime.now().until(dataInicioFerias, ChronoUnit.DAYS) > 10? true : false;
 		return intervaloSuperior10dias;
 	}
 	/**
-	 * Verifica intervalo entre data inicio e data fim fÈrias parciais
+	 * Verifica intervalo entre data inicio e data fim f√©rias parciais
 	 * 
-	 * Verifica se o intervalo entre a data de inÌcio e data de fim, considerando fÈrias parciais, È inferior a 20 dias, retornando verdadeiro caso seja.
+	 * Verifica se o intervalo entre a data de in√≠cio e data de fim, considerando f√©rias parciais, √© inferior a 20 dias, retornando verdadeiro caso seja.
 	 * 
-	 * @param dataInicioFerias LocalDateTime - data de inÌcio de fÈrias solicitada pelo colaborador
-	 * @param dataFimFerias LocalDateTime - data do fim das fÈrias solicitada pelo colaborador
-	 * @return boolean, de acordo com a condiÁ„o (inferior a 20 dias)
+	 * @param dataInicioFerias LocalDateTime - data de in√≠cio de f√©rias solicitada pelo colaborador
+	 * @param dataFimFerias LocalDateTime - data do fim das f√©rias solicitada pelo colaborador
+	 * @return boolean, de acordo com a condi√ß√£o (inferior a 20 dias)
 	 */
 	public static boolean verificarIntervaloFeriasParciais(LocalDateTime dataInicioFerias, LocalDateTime dataFimFerias) {
 		boolean intervaloInferior20dias = dataInicioFerias.until(dataFimFerias, ChronoUnit.DAYS) < 20? true : false;
@@ -32,13 +32,13 @@ public class Main {
 	}
 
 	/**
-	 * Registra as datas de inÌcio e fim das fÈrias totais
+	 * Registra as datas de in√≠cio e fim das f√©rias totais
 	 * 
-	 * Realiza o registro das datas de inÌcio e fim de fÈrias totais solicitadas pelo colaborador. 
-	 * A data fim È calculada 30 dias apÛs a data de inÌcio solicitada.
-	 * O registro do pedido sÛ ocorre caso a data de inÌcio das fÈrias seja, pelo menos, apÛs 10 dias a data da solicitaÁ„o. 
+	 * Realiza o registro das datas de in√≠cio e fim de f√©rias totais solicitadas pelo colaborador. 
+	 * A data fim √© calculada 30 dias ap√≥s a data de in√≠cio solicitada.
+	 * O registro do pedido s√≥ ocorre caso a data de in√≠cio das f√©rias seja, pelo menos, ap√≥s 10 dias a data da solicita√ß√£o. 
 	 * 
-	 * @param dataInicioFerias LocalDateTime - data de inÌcio de fÈrias solicitada pelo colaborador
+	 * @param dataInicioFerias LocalDateTime - data de in√≠cio de f√©rias solicitada pelo colaborador
 	 */
 	public static void registraFeriasTotais(LocalDateTime dataInicioFerias){
 		if (verificarDataSolicitacao(dataInicioFerias)) {
@@ -49,19 +49,19 @@ public class Main {
 			registraDataFimFerias(dataFimFerias);
 
 		} else {
-			System.out.println("A data da solicitaÁ„o È inferior a 10 dias deste chamado");
+			System.out.println("A data da solicita√ß√£o √© inferior a 10 dias deste chamado");
 		}
 	}
 
 	/**
-	 * Registra as datas de inÌcio e fim das fÈrias parciais
+	 * Registra as datas de in√≠cio e fim das f√©rias parciais
 	 * 
-	 * Realiza o registro das datas de inÌcio e fim de fÈrias parciais solicitadas pelo colaborador. 
-	 * Para solicitar fÈrias parcial, o intervalo entre inÌcio e fim n„o pode ser superior a 20 dias. 
-	 * O registro do pedido sÛ ocorre caso a data de inÌcio das fÈrias seja, pelo menos, apÛs 10 dias a data da solicitaÁ„o. 
+	 * Realiza o registro das datas de in√≠cio e fim de f√©rias parciais solicitadas pelo colaborador. 
+	 * Para solicitar f√©rias parcial, o intervalo entre in√≠cio e fim n√£o pode ser superior a 20 dias. 
+	 * O registro do pedido s√≥ ocorre caso a data de in√≠cio das f√©rias seja, pelo menos, ap√≥s 10 dias a data da solicita√ß√£o. 
 	 * 
-	 * @param dataInicioFerias LocalDateTime - data de inÌcio de fÈrias solicitada pelo colaborador
-	 * @param dataFimFerias LocalDateTime - data do fim das fÈrias solicitada pelo colaborador
+	 * @param dataInicioFerias LocalDateTime - data de in√≠cio de f√©rias solicitada pelo colaborador
+	 * @param dataFimFerias LocalDateTime - data do fim das f√©rias solicitada pelo colaborador
 	 */
 	public static void registraFeriasParciais(LocalDateTime dataInicioFerias, LocalDateTime dataFimFerias){
 		if (verificarDataSolicitacao(dataInicioFerias)) {
@@ -69,18 +69,18 @@ public class Main {
 			registraDataInicioFerias(dataInicioFerias);
 			registraDataFimFerias(dataFimFerias);
 		} else {
-			System.out.println("A data da solicitaÁ„o È inferior a 10 dias deste chamado");
+			System.out.println("A data da solicita√ß√£o √© inferior a 10 dias deste chamado");
 		}
 	}
 
 	/**
-	 * Calcula data fim das fÈrias totais
+	 * Calcula data fim das f√©rias totais
 	 * 
-	 * Calcula a data fim das fÈrias totais com base na data inÌcio das fÈrias solicitada pelo colaborador.
-	 * O c·lculo È realizado considerando que a data fim ser· 30 dias apÛs a data inÌcio.
+	 * Calcula a data fim das f√©rias totais com base na data in√≠cio das f√©rias solicitada pelo colaborador.
+	 * O c√°lculo √© realizado considerando que a data fim ser√° 30 dias ap√≥s a data in√≠cio.
 	 * 
-	 * @param dataInicioFerias LocalDateTime - data de inÌcio de fÈrias solicitada pelo colaborador
-	 * @return data fim das fÈrias totais
+	 * @param dataInicioFerias LocalDateTime - data de in√≠cio de f√©rias solicitada pelo colaborador
+	 * @return data fim das f√©rias totais
 	 */
 	public static LocalDateTime calculaDataFimFeriasTotais(LocalDateTime dataInicioFerias) {
 		LocalDateTime dataFimFerias = dataInicioFerias.plusDays(30);
@@ -88,30 +88,258 @@ public class Main {
 	}
 	
 	/**
-	 * Registro da data inÌcio das fÈrias
+	 * Registro da data in√≠cio das f√©rias
 	 * 
 	 * A SER IMPLEMENTADO
 	 * 
-	 * @param dataInicioFerias LocalDateTime - data de inÌcio de fÈrias solicitada pelo colaborador
+	 * @param dataInicioFerias LocalDateTime - data de in√≠cio de f√©rias solicitada pelo colaborador
 	 * @return
 	 */
 	static LocalDateTime registraDataInicioFerias(LocalDateTime dataInicioFerias) {
-		// TODO implementaÁ„o
+		// TODO implementa√ß√£o
 		return dataInicioFerias;
 	}
 
 	/**
-	 * Registro da data fim das fÈrias
+	 * Registro da data fim das f√©rias
 	 * 
 	 * A SER IMPLEMENTADO
 	 * 
-	 * @param dataFimFerias LocalDateTime - data do fim das fÈrias solicitada pelo colaborador
+	 * @param dataFimFerias LocalDateTime - data do fim das f√©rias solicitada pelo colaborador
 	 * @return
 	 */
 	static LocalDateTime registraDataFimFerias(LocalDateTime dataFimFerias) {
-		// TODO implementaÁ„o
+		// TODO implementa√ß√£o
 		return dataFimFerias;
 	}
 
+	//Janaina <<<<<<<<<< start
+	
+	static int[] saldoDeFerias = { 20, 30, 15, 10 };
+	static String[][] colaboradores = new String[2][3];
+	static LocalDate inicio = LocalDate.of(2019, 01, 15);
+	static LocalDate termino = LocalDate.of(2019, 01, 01);
+	static String[] tiposDeFerias = { "De direito", "Vendidas" };
+	static String[] tiposDePeriodo = { "parcial", "total" };
+
+	static int[] feriasTiradas = { 10, 15, 20, 30 };
+	/*
+	 * static LocalDate[] datasInicioDeFerias = { LocalDate.of(2020, 01, 01),
+	 * LocalDate.of(2020, 02, 01), LocalDate.of(2020, 03, 01), LocalDate.of(2020,
+	 * 04, 01) }; static LocalDate[] datasTerminoDeFerias = { LocalDate.of(2020, 01,
+	 * 010), LocalDate.of(2020, 02, 15), LocalDate.of(2020, 07, 01),
+	 * LocalDate.of(2020, 8, 01) };
+	 */
+
+	public static void gerarColaboradores() {
+		colaboradores[0][0] = "Pessoa 1";
+		colaboradores[0][1] = "Pessoa 2";
+		colaboradores[0][2] = "Pessoa 3";
+
+		colaboradores[1][0] = "Pessoa 5";
+		colaboradores[1][1] = "Pessoa 6";
+		colaboradores[1][2] = "Pessoa 7";
+	}
+
+	// O sistema recebe o colaborador e verifica se ele possui saldo de f√©rias
+	// positivo.
+	/**
+	 * Verifica se possui saldo positivo.
+	 * 
+	 * Consulta o cadastro do colaborador e verifica se ele possui saldo de f√©rias
+	 * dispon√≠vel.
+	 * 
+	 * @param idColaborador ID do colaborador a ser consultado.
+	 * @return
+	 */
+	public static boolean verificarSePossuiSaldoPositivo(int idColaborador, int saldoFerias) {
+		boolean podeTirarFerias = saldoFerias > 0 ? true : false;
+
+		return podeTirarFerias;
+	}
+
+	// Se n√£o, informa que n√£o existe saldo positivo de f√©rias.
+	/**
+	 * Informa se existe saldo de f√©rias.
+	 * 
+	 * Retorna uma mensagem do tipo String que informa se existe saldo para o
+	 * usu√°rio informado no par√¢metro.
+	 * 
+	 * @param idColaborador ID do colaborador a ser consultado.
+	 * @return
+	 */
+	public static String informarSaldo(boolean existeSaldo, int idColaborador) {
+		String mensagem;
+
+		if (existeSaldo) {
+			mensagem = "Saldo positivo: " + pegarSaldo(idColaborador);
+		} else {
+			mensagem = "N√£o existe saldo de f√©rias dispon√≠vel para o usu√°rio informado.";
+		}
+		return mensagem;
+	}
+
+	/**
+	 * Retorna saldo.
+	 * 
+	 * Consulta o saldo de f√©rias do Colaborador e retorna a quantidade de dias do
+	 * tipo int.
+	 * 
+	 * @param idColaborador ID do colaborador a ser consultado.
+	 * @return
+	 */
+	public static int pegarSaldo(int idColaborador) {
+		int saldo = saldoDeFerias[idColaborador];
+		return saldo;
+
+	}
+
+	/*
+	 * Se sim, o sistema retorna rela√ß√£o de per√≠odos de f√©rias tiradas, contendo o
+	 * tipo: f√©rias vendidas (quantidade de dias e valor) f√©rias de direito
+	 * (quantidade de dias, e data de in√≠cio e fim)
+	 */
+
+	/**
+	 * Retorna tipo de f√©rias.
+	 * 
+	 * Retorna uma String informando o tipo de f√©rias.
+	 * 
+	 * @param tipoDeFerias
+	 * @return
+	 */
+	public static String retornarTipoDeFerias(int tipoDeFerias) {
+		return tiposDeFerias[tipoDeFerias];
+	}
+
+	/**
+	 * Retorna valor total das f√©rias vendidas.
+	 * 
+	 * Multiplica o parametro totalDiasTirados por valorUmDiaDeTrabalho.
+	 * 
+	 * @param totalDiasTirados     Quantidade de dias de f√©rias tirado.
+	 * @param valorUmDiaDeTrabalho Valor total de um dia de trabalho.
+	 * @return
+	 */
+	public static double retornarValorDasFeriasVendidas(int totalDiasTirados, double valorUmDiaDeTrabalho) {
+		double valorTotal = totalDiasTirados * valorUmDiaDeTrabalho;
+		return valorTotal;
+	}
+
+	/**
+	 * Retorna quantidade de dias
+	 * 
+	 * Retorna a quantidade de dias em formato long, a partir das datas de in√≠cio e
+	 * t√©rmino informadas.
+	 * 
+	 * @param inicio  Data de in√≠cio.
+	 * @param termino Data de t√©rmino.
+	 * @return
+	 */
+	public static long retornarIntervaloEmDiasEntreAsDatas(LocalDate inicio, LocalDate termino) {
+		long dias = ChronoUnit.DAYS.between(inicio, termino);
+		return dias;
+	}
+
+	/*
+	 * Caso haja, o sistema retorna uma lista do nome dos colaboradores contendo:
+	 * tipo de f√©rias, data de in√≠cio e fim, solicita√ß√£o de f√©rias em andamento
+	 */
+
+	/**
+	 * Retorna colaboradores do setor informado.
+	 * 
+	 * Retorna uma List contendo os colaboradores que trabalham no setor que possui
+	 * o id informado.
+	 * 
+	 * @param idSetor ID do setor a ser consultado.
+	 * @return
+	 */
+	public static ArrayList<String> retornarColaboradoresDoSetor(int idSetor) {
+		ArrayList<String> colaboradoresDoSetorInformado = new ArrayList<String>();
+
+		for (String colaborador : colaboradores[idSetor]) {
+			colaboradoresDoSetorInformado.add(colaborador);
+		}
+
+		return colaboradoresDoSetorInformado;
+	}
+
+	/**
+	 * Altera periodo de concess√£o de f√©rias parciais.
+	 * 
+	 * Altera o per√≠odo de concess√£o de f√©rias atrav√©s da nova data de in√≠cio e
+	 * t√©rmino informadas.
+	 * 
+	 * @param idPeriodo       ID do per√≠odo a ser alterado.
+	 * @param novaDataInicio  Nova data de in√≠cio do per√≠odo.
+	 * @param novaDataTermino Nova data de t√©rmino do per√≠odo.
+	 * @return
+	 */
+	public static void alterarPeriodoDeFeriasParciais(int idPeriodo, LocalDate novaDataInicio,
+			LocalDate novaDataTermino) {
+		long novoPeriodo = retornarIntervaloEmDiasEntreAsDatas(novaDataInicio, novaDataTermino);
+		feriasTiradas[idPeriodo] = (int) novoPeriodo;
+	}
+
+	/**
+	 * Informa o novo per√≠odo de concess√£o de f√©rias parciais.
+	 * 
+	 * Retorna uma mensagem do tipo String contendo quantidade de dias do novo
+	 * per√≠odo e datas de in√≠cio e fim.
+	 * 
+	 * @param idTipoDePeriodo
+	 * @param dataInicio Nova data de in√≠cio do per√≠odo.
+	 * @param dataTermino Nova data de t√©rmino do per√≠odo.
+	 * @return
+	 */
+	public static String informarNovoPeriodoDeConcessaoParcial(int idTipoDePeriodo, LocalDate dataInicio,
+			LocalDate dataTermino) {
+		int periodoEmDias = (int) retornarIntervaloEmDiasEntreAsDatas(dataInicio, dataTermino);
+		String mensagem = "Tipo de per√≠odo: " + tiposDePeriodo[idTipoDePeriodo] + ". Quantidade de dias tirados: "
+				+ periodoEmDias + ".";
+		return mensagem;
+	}
+
+	/**
+	 * Informa o novo per√≠odo de concess√£o de f√©rias totais.
+	 * 
+	 * Retorna uma mensagem do tipo String contendo quantidade de dias do novo
+	 * per√≠odo e data de in√≠cio.
+	 * 
+	 * @param idTipoDePeriodo ID referente ao tipo do per√≠odo.
+	 * @param idFeriasTiradas ID referente √†s f√©rias tiradas.
+	 * @return
+	 */
+	public static String informarNovoPeriodoDeConcessaoTotal(int idTipoDePeriodo, int idFeriasTiradas) {
+		int periodoEmDias = feriasTiradas[idFeriasTiradas];
+		String mensagem = "Tipo de per√≠odo: " + tiposDePeriodo[idTipoDePeriodo] + ". Quantidade de dias tirados: "
+				+ periodoEmDias + ".";
+		return mensagem;
+	}
+
+	/**
+	 * Valida o novo periodo de concess√£o de f√©rias.
+	 * 
+	 * Verifica se o per√≠odo √© valido com base na quantidade de dias do per√≠odo
+	 * atual e do per√≠odo novo.
+	 * 
+	 * @param periodoAtual Quantidade de dias do per√≠odo atual a ser alterado.
+	 * @param dataInicio Data de in√≠cio do per√≠odo.
+	 * @param dataTermino Data de t√©rmino do per√≠odo.
+	 * @return
+	 */
+	public static boolean novoPeriodoEhValido(int periodoAtual, LocalDate dataInicio, LocalDate dataTermino) {
+		boolean periodoValido = true;
+
+		long periodoNovo = ChronoUnit.DAYS.between(dataInicio, dataTermino);
+		if (periodoAtual < periodoNovo || periodoNovo == 0) {
+			periodoValido = false;
+		}
+		return periodoValido;
+	}
+	
+	////Janaina <<<<<<<<<< end
+	
 
 }
